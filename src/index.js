@@ -4,11 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Auth0Provider
+    domain={process.env.REACT_APP_CLIENT_DOMAIN}
+    clientId={process.env.REACT_APP_CLIENT_ID}
+    audience={process.env.REACT_APP_CLIENT_AUDIENCE}
+    redirectUri="http://localhost:3000/main"
+  >
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Auth0Provider>,
   document.getElementById('root')
 );
 

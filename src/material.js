@@ -5,8 +5,21 @@ import {
     IconButton,
     Typography,
     Container,
-    Card
+    Card,
+    TextField,
+    FormControl,
+    Input,
+    FilledInput,
+    OutlinedInput,
+    InputLabel,
+    FormHelperText,
+    InputAdornment,
 } from '@material-ui/core';
+
+import Icon from '@material-ui/core/Icon';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+
 import { createMuiTheme } from '@material-ui/core/styles';
 
 export {
@@ -16,7 +29,18 @@ export {
     IconButton,
     Typography,
     Container,
-    Card
+    Card,
+    TextField,
+    FormControl,
+    InputLabel,
+    Input,
+    FilledInput,
+    OutlinedInput,
+    FormHelperText,
+    InputAdornment,
+    Icon,
+    Visibility,
+    VisibilityOff,
 }
 
 const theme = createMuiTheme({
@@ -53,6 +77,10 @@ export function MatStyle() {
             position: 'fixed',
             right: '2%'
         },
+        submitBtn: {
+          color: theme.palette.primary.contrastText,
+          'background-color': theme.palette.primary.main
+        },
         card: {
             margin: 'auto',
             'margin-top': '2rem',
@@ -60,8 +88,22 @@ export function MatStyle() {
             padding: '10px',
             'background-color': theme.palette.grayscale.ultralight
         },
-        'text-center': {
+        uploadBtn: {
+          'background-color': theme.palette.grayscale.light,
+          color: theme.palette.primary.contrastText
+        },
+        textCenter: {
             'text-align': 'center',
+        },
+        'mt-1': {
+          'margin-top': '1rem'
+        },
+        'mr-1': {
+          'margin-right': '1rem'
+        },
+        input: {
+          'font-family': 'Verdana,sans-serif',
+          height: '3.5rem',
         }
     })
 }
