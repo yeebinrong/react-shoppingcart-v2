@@ -1,25 +1,55 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Toolbar, AppBar, Typography, Button, MatStyle } from './material'
+import { Route, Switch } from 'react-router-dom'
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/styles';
+
+import Login from './components/login/login'
+import Main from './components/main/main';
+
+const styles = MatStyle()
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      login: false
+    }
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              React Shoppingcart App V2
+            </Typography>
+            <Button variant="outlined" color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+        <Switch>
+          <Route 
+            exact path="/"
+            component={Login}
+          />
+          <Route 
+            exact path="/main"
+            component={Main}
+          />
+        </Switch>
+      </div>
+    );
+  }
 }
 
-export default App;
+App.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(App);
