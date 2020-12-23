@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import { Toolbar, AppBar, Typography, Button, MatStyle } from './material'
-import { Route, Switch } from 'react-router-dom'
+import { Toolbar, AppBar, Typography, Button, Container, MatStyle } from './material'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
 
@@ -25,24 +25,29 @@ class App extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              React Shoppingcart App V2
-            </Typography>
-            <Button variant="outlined" color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-        <Switch>
-          <Route 
-            exact path="/"
-            component={Login}
-          />
-          <Route 
-            exact path="/main"
-            component={Main}
-          />
-        </Switch>
+        <Toolbar className={classes.toolbar}>
+          <Typography variant="h6">
+            React Shoppingcart App V2
+          </Typography>
+          <Button variant="outlined" color="inherit" className={classes.button}>Login</Button>
+        </Toolbar>
+        <Container>
+          <AppBar position="static">
+          </AppBar>
+          <Switch>
+            <Route 
+              exact path="/"
+              render={props => <Login state={this.state} classes={classes}/>}
+            />
+            <Route 
+              exact path="/main"
+              component={Main}
+            />
+            <Redirect
+              to="/"
+            />
+          </Switch>
+        </Container>
       </div>
     );
   }
