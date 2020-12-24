@@ -1,18 +1,20 @@
 import React from 'react';
 import LogoutButton from '../login/logoutbutton';
 import { Card, FormControl, OutlinedInput, InputLabel, FormHelperText, InputAdornment, Button } from '../../material'
-import Profile from '../login/profile';
+import Profile from './profile';
+
 
 class Main extends React.Component {
-    
+
+
     render() {
         const { classes } = this.props;
         const state = this.props.state;
 
         return (
             <Card className={`${classes.card} ${classes.textCenter}`}>
-                <Profile></Profile>
-                <h2>Product Page</h2>
+                <Profile classes={classes} state={state} resetValues={this.props.resetValues}></Profile>
+                <h2>Product Upload</h2>
                 <FormControl fullWidth variant="outlined" error={state.productname === '' && state.isNameTouched}>
                     <InputLabel htmlFor="productname">Product Name</InputLabel>
                     <OutlinedInput 
@@ -62,7 +64,10 @@ class Main extends React.Component {
                         state.productprice === '' ||
                         state.productqty === ''
                     } 
-                    variant="outlined">Add to database.
+                    variant="outlined"
+                    onClick={() => this.props.handleUpload()}
+                    >
+                        Add to database.
                 </Button>
                 <LogoutButton classes={classes}></LogoutButton>
             </Card>

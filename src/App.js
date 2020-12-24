@@ -28,6 +28,7 @@ class App extends React.Component {
       isNameTouched: false,
       isPriceTouched: false,
       isQtyTouched: false,
+      isUpload: false
     };
   }
   
@@ -72,6 +73,26 @@ class App extends React.Component {
     event.preventDefault();
   };
 
+  handleUpload = () => {
+    this.setState(state => {
+      state.isUpload = true
+      return state
+    });
+  }
+
+  resetValues = () => {
+    this.setState(state => {
+      state.isUpload = false
+      state.productname = ''
+      state.productprice = ''
+      state.productqty = ''
+      state.isNameTouched = false
+      state.isPriceTouched = false
+      state.isQtyTouched = false
+      return state
+    })
+  }
+
   render() {
     const { classes } = this.props;
     
@@ -103,6 +124,8 @@ class App extends React.Component {
                 state={this.state} 
                 classes={classes}
                 handleInputChange={this.handleInputChange}
+                handleUpload={this.handleUpload}
+                resetValues={this.resetValues}
               />}
             />
             <Redirect

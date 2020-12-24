@@ -1,46 +1,27 @@
 import { 
-    Button,
-    Toolbar,
-    AppBar,
-    IconButton,
+    IconButton, Button, Icon,
+    Toolbar, AppBar,
     Typography,
     Container,
     Card,
-    TextField,
-    FormControl,
-    Input,
-    FilledInput,
-    OutlinedInput,
-    InputLabel,
-    FormHelperText,
-    InputAdornment,
+    TextField, FormControl, Input, FilledInput, OutlinedInput, InputLabel, FormHelperText, InputAdornment,
+    Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 } from '@material-ui/core';
 
-import Icon from '@material-ui/core/Icon';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 
 export {
-    Button,
-    Toolbar,
-    AppBar,
-    IconButton,
+    IconButton, Button, Icon,
+    Toolbar, AppBar,
     Typography,
     Container,
     Card,
-    TextField,
-    FormControl,
-    InputLabel,
-    Input,
-    FilledInput,
-    OutlinedInput,
-    FormHelperText,
-    InputAdornment,
-    Icon,
-    Visibility,
-    VisibilityOff,
+    TextField, FormControl, InputLabel, Input, FilledInput, OutlinedInput, FormHelperText, InputAdornment,
+    Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
+    Visibility, VisibilityOff,
 }
 
 const theme = createMuiTheme({
@@ -91,6 +72,12 @@ export function MatStyle() {
         uploadBtn: {
           'background-color': theme.palette.grayscale.light,
           color: theme.palette.primary.contrastText
+        },
+        red : {
+          color: theme.palette.secondary.main,
+          'background-color': theme.palette.grayscale.dark,
+          'border-radius': '1rem',
+          'cursor': 'pointer'
         },
         textCenter: {
             'text-align': 'center',
