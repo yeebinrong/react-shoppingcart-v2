@@ -11,7 +11,8 @@ ReactDOM.render(
     domain={process.env.REACT_APP_CLIENT_DOMAIN}
     clientId={process.env.REACT_APP_CLIENT_ID}
     audience={process.env.REACT_APP_CLIENT_AUDIENCE}
-    redirectUri="http://localhost:3000/main"
+    // redirectUri="http://localhost:3000/main"
+    redirectUri="https://react-shoppingcart-v2.vercel.app/main"
   >
     <BrowserRouter>
       <App />
